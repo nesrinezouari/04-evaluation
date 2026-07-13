@@ -280,13 +280,21 @@ resu= evaluate(
    
 )
 print(resu)
-
+results = []
 
 for K in [0.1, 0.2, 0.5]:
-
+    result = evaluate(
+    ground_truth,
+    hybrid_search,
+    K
+   
+)
     results.append({
-                "question": question_boost,
-                "answer": answer_boost,
-                "section": section_boost,
+                
                 "hit_rate": result["hit_rate"],
                 "mrr": result["mrr"],
+                })
+    
+df_results = pd.DataFrame(results)
+best =df_results.sort_values("mrr", ascending=False).head(1)
+print (best)

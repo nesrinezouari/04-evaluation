@@ -1,0 +1,4 @@
+.venv
+.env
+.faq.db*
+*.db*
